@@ -2,21 +2,40 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    //this section is for last minute notifications before displaying
 }
 
-<form asp-method ="post" asp-action ="result">
+@*add asp-method and action within the form*@
+<form asp-method ="post" asp-action ="result"> @*action has to match one method in controller*@
+    <h1>Registration in a Snap!</h1>
 
     <p>Enter First Name:</p>
-    <input type ="text" name="name"/>
+    <input type ="text" name="name"/> 
 
     <p>Enter Last Name:</p>
     <input type="text" name="lastname" />
 
     <p>Enter Email:</p>
-    <input type ="text" email ="email"</p>
+    <input type ="email" name ="email"</p>
 
     <p>Enter Password:</p>
-    <input type ="password" password="password"/p>
+    <input type ="password" name="password"/p>  
 
-    <input type="submit" />
+    <p>Do you have allergies?</p>
+    <input type ="checkbox" name="allergies "value="true"/>
+
+
+
+    <p>Please select your favorite Latte Flavor</p>
+    <select name ="Flavor">        
+        <option value= "Vanilla">Vanilla</option>
+        <option value="Cream">Cream</option>
+        <option value="Cinnamon">Cinnamon</option>
+        <option value="Strawberry">Strawberry</option>
+        <option value="White Chocolate Mocha">White Chocolate Mocha</option>
+        <option value="Hazelnut">Hazelnut</option>
+    </select>
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary"/>
 </form>

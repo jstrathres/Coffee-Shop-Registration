@@ -1,5 +1,7 @@
 ﻿using COFFEE_SHOP_REGISTRATION.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 
 namespace COFFEE_SHOP_REGISTRATION.Controllers
@@ -8,6 +10,9 @@ namespace COFFEE_SHOP_REGISTRATION.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private ProductDbContext dbContext = new ProductDbContext();
+        //allow access
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,7 +20,8 @@ namespace COFFEE_SHOP_REGISTRATION.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Product> result = dbContext.Products.ToList();  //had to ass s to product, dont forget
+            return View(result);
         }
 
         public IActionResult Form()
@@ -26,6 +32,13 @@ namespace COFFEE_SHOP_REGISTRATION.Controllers
         public IActionResult Result(Coffee c)
         {
             return View(c);
+        }
+
+        public IActionResult ProductDetails(int id)
+        {
+            Product result = dbContext.Products.FirstOrDefault(p => p.Id == id); //built in default, avoids breaking code
+
+            return View(result);
         }
 
         public IActionResult Privacy()

@@ -27,7 +27,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
-                        @*link to form*@
+                        @*link to form, MAKES IT AVAILABLE ON HOMEPAGE*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Form">Form</a>
                         </li>
@@ -37,9 +37,10 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            @RenderBody()  @*this is what renders everything, from privacy, index and form*@
         </main>
     </div>
 
